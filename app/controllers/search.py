@@ -1,5 +1,5 @@
 from flask import request, redirect, url_for, render_template
-from app.models import search
+from ..models import search
 import json
 
 
