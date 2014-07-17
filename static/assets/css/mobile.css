@@ -1,0 +1,25 @@
+@media (max-width: 768px)
+{
+    #search {
+        margin: auto;
+        position: absolute;
+        top: 10%; left: 5%; right: 5%;
+    }
+
+    .home_search {
+        width: 100% !important;
+        height: 50px;
+        border-radius: 0px;
+        border: 5px solid #CECECE;
+        font-size: 14px;
+        font-weight: 300;
+        margin-right: -30px;
+        margin-bottom: 20px;
+    }
+
+    .link {
+        font-size: 21px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

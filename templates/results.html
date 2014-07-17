@@ -1,0 +1,76 @@
+{% extends "master.html" %}
+
+{% block body%}<body id="results-page">{% endblock %}
+
+{% block content %}
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><i class="ion-planet"></i> UFOOGLE</a>
+          <p class="json"><a href="/results/json?q={{ data['query'] }}&page={{ data['page'] }}"><i class="ion-android-stair-drawer"></i> JSON</a></p>
+        </div>
+    </div>
+    <div id="results">
+        <div class="row">
+            <div class ="col-xs-12">
+                <form method="GET" action="/results">
+                    <input type="text" name="q" class="form-control home_search" id="d" value="{{ data['query'] }}" placeholder="Search New York, Abduction, Cigar Shaped..." required>
+                </form>
+                {% if data['page'] == 1 %} 
+                    <p>{{ data['count'] }} results</p>
+                {% else %}
+                    <p>Page {{ data['page'] }} of {{ data['count'] }} results</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <!-- Results -->
+            <div class="col-md-9">
+                {% for result in data['results'] %}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3 class=""><a href="{{ result['_source']['url'] }}" target="_blank">{{ result['_source']['url'] }}</a></h3>
+                            <p><strong>Where:</strong> <small>{{ result['_source']['location'] }}</small></p>
+                            <p>
+                                <strong>Occurred:</strong> <small>{{ result['_source']['occurred'] if result['_source']['occurred'] != "" else 'N/A' }}</small> 
+                                <strong>Reported:</strong> <small>{{ result['_source']['reported'] if result['_source']['reported'] != "" else 'N/A' }}</small>
+                                <strong>Duration:</strong> <small>{{ result['_source']['duration'] if result['_source']['duration'] != "" else 'N/A' }}</small>
+                            </p>
+                            <p><strong>Shape:</strong> <small>{{ result['_source']['shape'] if result['_source']['shape'] != "" else 'N/A' }}</small></p>
+                            <p class="description">{{ result['_source']['description'] }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="pagination pagination-lg" style="float:right;">
+                            {% if data['page'] != 1 %}
+                                <li><a href="/results?q={{ data['query'] }}&page={{ data['page'] - 1 }}">&laquo; <strong>previous</strong></a></li>
+                            {% endif %}
+
+                            {% if data['page'] < data['pages'] %}
+                                <li><a href="/results?q={{ data['query'] }}&page={{ data['page'] + 1 }}"><strong>next</strong> &raquo;</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- ufoogle -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:600px"
+                     data-ad-client="ca-pub-1116325646517937"
+                     data-ad-slot="1795924733"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

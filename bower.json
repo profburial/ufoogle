@@ -1,0 +1,25 @@
+{
+  "name": "ufo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/profburial/ufoogle",
+  "authors": [
+    "Terry Harmon <terry@polymorphdev.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "ionicons": "~1.5.2",
+    "jQuery.mmenu": "~4.3.5",
+    "jquery.transit": "~0.9.11",
+    "lato": "~0.2.0"
+  }
+}

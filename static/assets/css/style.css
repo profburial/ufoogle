@@ -1,0 +1,119 @@
+/**
+ * Base Styles 
+ */
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    background-color: #f0f0f0;
+    font-weight: 300;
+}
+
+b, strong {
+    font-weight: 400;
+}
+
+#home-page {
+    background: url('/static/assets/img/ufo2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+}
+
+#results-page {
+    margin-top: 50px;
+    background-color: #F5F5F5;
+}
+
+.home_header {
+    color: white;
+    font-weight: 200;
+    margin-bottom: 15px;
+}
+
+.ion-planet {
+    color: #0099FF !important;
+}
+
+/**
+ * Search Form
+ */
+#search {
+    margin: auto;
+    position: absolute;
+    top: 35%; left: 5%; right: 5%;
+}
+
+.home_search {
+    width: 100% !important;
+    height: 65px;
+    border-radius: 0px;
+    border: 5px solid #CECECE;
+    font-size: 26px;
+    font-weight: 300;
+    margin-right: -30px;
+    margin-bottom: 20px;
+}
+
+.search_tips {
+    color: white;
+}
+
+/**
+ * Results page
+ */
+#results {
+    margin: 65px 10px 10px 10px;
+}
+
+.json {
+    margin-top: 15px;
+    margin-right: 15px;
+    float:right;
+}
+
+.description {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-inverse {
+    background-color: #FFF;
+    border-color: #CCCCCC;
+    -webkit-box-shadow: 0 0px 3px 0px #888888;
+    -moz-box-shadow: 0 0px 3px 0px #888888;
+    box-shadow: 0 0px 3px 0px #888888;
+}
+
+.navbar-header {
+    width: 100%;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #5A5A5A;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #000000;
+    background-color: transparent;
+}
+
+.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+    color: #DDDDDD;
+    background-color: #9E9E9E;
+    border-color: #ddd;
+}
+
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #838383;
+    border: 1px solid #ddd;
+}
