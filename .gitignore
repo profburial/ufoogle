@@ -1,7 +1,7 @@
 ENV
 static/components/*
-app/__init__.pyc
-app/controllers/__init__.pyc
-app/controllers/search.pyc
-app/models/__init__.pyc
-app/models/search.pyc
+git rm app/__init__.pyc
+git rm app/controllers/__init__.pyc
+git rm app/controllers/search.pyc
+git rm app/models/__init__.pyc
+git rm app/models/search.pyc
