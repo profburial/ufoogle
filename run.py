@@ -19,4 +19,5 @@ def results_json():
         return search.Search().keyword('json')
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()

@@ -1,7 +1,7 @@
 """
 Simple Methods for Searching Elasticsearch
 
-TODO: Applying search filters is a little pukey...clean that up.
+TODO: Applying search filters is butt...clean that up.
 """
 
 
@@ -31,17 +31,20 @@ class Search():
     # Search by Keyword
     def keyword(self, keyword):
 
-        # Get fields
-        type = self.queryType(keyword)
+        # Build Query
+        query = self.buildQuery(keyword)
 
-        # Set fields
-        fields = self.setFields(type)
+        # # Get fields
+        # type = self.queryType(keyword)
 
-        # Get Keyword
-        searchKeyword = self.getKeyword(keyword)
+        # # Set fields
+        # fields = self.setFields(type)
 
-        # Set query
-        query = self.getQuery(type, fields, searchKeyword)
+        # # Get Keyword
+        # searchKeyword = self.getKeyword(keyword)
+
+        # # Set query
+        # query = self.getQuery(type, fields, searchKeyword)
 
         # Search for keyword
         results = self.es.search(
@@ -52,7 +55,7 @@ class Search():
                 "sort": [{"occurred": "desc"}],
                 "query": {
                     "bool": {
-                        "must": query,
+                        "must": [ eval(query) ],
                         "minimum_should_match": 1,
                         "boost": 1
                     }
@@ -72,6 +75,39 @@ class Search():
         }
 
         return data
+
+    # Build Query
+    def buildQuery(self, keyword):
+        indicator = keyword.split('^')
+
+        if len(indicator) > 1:
+            query = ''
+            for keyword in indicator:
+                # Get fields
+                type = self.queryType(keyword.strip())
+
+                # Set fields
+                fields = self.setFields(type)
+
+                # Get Keyword
+                searchKeyword = self.getKeyword(keyword.strip())
+
+                # Set query
+                query += str(self.getQuery(type, fields, searchKeyword)) + ','
+
+            return query
+        else:
+            # Get fields
+            type = self.queryType(keyword)
+
+            # Set fields
+            fields = self.setFields(type)
+
+            # Get Keyword
+            searchKeyword = self.getKeyword(keyword)
+
+            # Set query
+            return str(self.getQuery(type, fields, searchKeyword))
 
     # Get Keyword
     def getKeyword(self, keyword):
