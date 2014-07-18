@@ -6,6 +6,14 @@
         top: 10%; left: 5%; right: 5%;
     }
 
+
+    #home-page {
+        background-image: url('/static/assets/img/ufo2.jpg');
+        background-position: 50% 70%;
+        background-repeat: no-repeat;
+        background-size: 600%;
+    }
+
     .home_search {
         width: 100% !important;
         height: 50px;
